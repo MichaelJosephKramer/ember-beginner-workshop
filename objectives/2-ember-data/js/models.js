@@ -6,7 +6,6 @@ App.Story = DS.Model.extend({
 });
 
 
-/*
 App.Section = DS.Model.extend({
   seq: DS.attr('number'),
   synopsis: DS.attr('string'),
@@ -14,12 +13,9 @@ App.Section = DS.Model.extend({
   story: DS.belongsTo('story'),
   choices: DS.hasMany('choice', {async: true, inverse: 'section'})
 });
-*/
 
-/*
 App.Choice = DS.Model.extend({
   wording: DS.attr('string'),
   section: DS.belongsTo('section'),
   goes_to: DS.belongsTo('section')
 });
-*/

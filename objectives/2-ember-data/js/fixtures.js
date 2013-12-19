@@ -21,7 +21,6 @@ App.Story.FIXTURES = [
   }
 ];
 
-/*
 App.Section.FIXTURES = [
   {
     id: 2000,
@@ -130,10 +129,8 @@ App.Section.FIXTURES = [
           "car with fungus shaped head popping out.",
     story: 103
   }
-]
-*/
+];
 
-/*
 App.Choice.FIXTURES = [
   {
       id: 3000,
@@ -185,5 +182,3 @@ App.Choice.FIXTURES = [
       wording: "Head home",
       goes_to: 2020
   }];
-
-*/
