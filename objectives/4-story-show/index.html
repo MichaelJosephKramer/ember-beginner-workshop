@@ -31,23 +31,46 @@
     {{outlet}}
   </script>
 
-  <!--== Templates with routes ==-->
-  <!-- /stories -->
-  <script type="text/x-handlebars"
-          data-template-name="stories/index">
+  <!-- /stories/:story_id/edit -->
+  <script type="text/x-handlebars" data-template-name="stories/edit">
+    <button {{action save}} class="btn btn-success">Save</button>
+    <button {{action cancel}} class="btn btn-danger">Cancel</button>
+    <h3>Edit {{title}}</h3>
 
-    <h3>Stories:</h3>
-    <ul>
-      {{#each story in content}}
-        <li>{{#link-to 'stories.show' story}}{{story.title}}{{/link-to}}</li>
-      {{/each}}
-    </ul>
+    <fieldset>
+      <label>Title</label>
+      {{input value=title size="80"}}
+    </fieldset>
   </script>
 
   <!-- /stories/:story_id -->
-  <script type="text/x-handlebars"
-          data-template-name="stories/show">
+  <script type="text/x-handlebars" data-template-name="stories/show">
+    {{#link-to 'stories.edit' content}}
+      <button class="btn btn-primary">Edit</button>
+    {{/link-to}}
     <h3>{{title}}</h3>
+  </script>
+
+  <!--== Templates with routes ==-->
+  <!-- /stories -->
+  <script type="text/x-handlebars" data-template-name="stories/index">
+    <h3>Stories:</h3>
+    {{partial "stories/storiesList"}}
+  </script>
+
+  <!--== Partials ==-->
+  <script type="text/x-handlebars"
+          data-template-name="stories/_storiesList">
+    <ul>
+      {{#each story in content}}
+        <li>
+          {{#link-to 'stories.edit' story}}
+            <button class="btn btn-primary btn-xs">Edit</button>
+          {{/link-to}}
+          {{#link-to 'stories.show' story}}{{story.title}}{{/link-to}}
+        </li>
+      {{/each}}
+    </ul>
   </script>
 </body>
 </html>
