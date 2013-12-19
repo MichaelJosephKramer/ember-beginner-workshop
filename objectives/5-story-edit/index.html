@@ -37,6 +37,9 @@
           data-template-name="stories/index">
 
     <h3>Stories:</h3>
+    {{#link-to 'stories.new'}}
+      <button class="btn btn-success">New Story</button>
+    {{/link-to}}
     {{partial "stories/storiesList"}}
   </script>
 
@@ -62,6 +65,18 @@
     </fieldset>
   </script>
 
+  <!-- /stories/:story_id -->
+<script type="text/x-handlebars" data-template-name="stories/new">
+  <h3>New Story</h3>
+  <fieldset>
+    <label>Title</label>
+    {{input value=title size="80"}}
+  </fieldset>
+  <br>
+  <button {{action create}} class="btn btn-success">Create</button>
+  <button {{action cancel}} class="btn btn-danger">Cancel</button>
+</script>
+
   <!--== Partials ==-->
 
   <script type="text/x-handlebars"
@@ -72,10 +87,12 @@
           {{#link-to 'stories.edit' story}}
             <button class="btn btn-primary btn-xs">Edit</button>
           {{/link-to}}
+          <button {{action "destroy" story}} class="btn btn-danger btn-xs">Delete</button>
           {{#link-to 'stories.show' story}}{{story.title}}{{/link-to}}
         </li>
       {{/each}}
     </ul>
   </script>
+
 </body>
 </html>
